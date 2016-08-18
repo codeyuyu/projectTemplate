@@ -1,4 +1,4 @@
-package com.zhiduan.axp.dao.manager.bean;
+package generator.com.zhiduan.axp.dao.manager.bean;
 
 public class TbPickupAddressCollege {
     private Long pacId;

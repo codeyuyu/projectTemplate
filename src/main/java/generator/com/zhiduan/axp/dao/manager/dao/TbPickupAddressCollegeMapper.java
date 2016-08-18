@@ -1,4 +1,4 @@
-package com.zhiduan.axp.dao.manager.dao;
+package generator.com.zhiduan.axp.dao.manager.dao;
 
 import com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege;
 
