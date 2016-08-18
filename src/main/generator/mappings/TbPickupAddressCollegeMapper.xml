@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiduan.axp.dao.manager.dao.TbPickupAddressCollegeMapper" >
+  <resultMap id="BaseResultMap" type="com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege" >
+    <constructor >
+      <idArg column="pac_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="pickup_address_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="college_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pac_id, pickup_address_id, college_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_pickup_address_college
+    where pac_id = #{pacId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_pickup_address_college
+    where pac_id = #{pacId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege" >
+    insert into tb_pickup_address_college (pac_id, pickup_address_id, college_id
+      )
+    values (#{pacId,jdbcType=BIGINT}, #{pickupAddressId,jdbcType=BIGINT}, #{collegeId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege" >
+    insert into tb_pickup_address_college
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pacId != null" >
+        pac_id,
+      </if>
+      <if test="pickupAddressId != null" >
+        pickup_address_id,
+      </if>
+      <if test="collegeId != null" >
+        college_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pacId != null" >
+        #{pacId,jdbcType=BIGINT},
+      </if>
+      <if test="pickupAddressId != null" >
+        #{pickupAddressId,jdbcType=BIGINT},
+      </if>
+      <if test="collegeId != null" >
+        #{collegeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege" >
+    update tb_pickup_address_college
+    <set >
+      <if test="pickupAddressId != null" >
+        pickup_address_id = #{pickupAddressId,jdbcType=BIGINT},
+      </if>
+      <if test="collegeId != null" >
+        college_id = #{collegeId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where pac_id = #{pacId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhiduan.axp.dao.manager.bean.TbPickupAddressCollege" >
+    update tb_pickup_address_college
+    set pickup_address_id = #{pickupAddressId,jdbcType=BIGINT},
+      college_id = #{collegeId,jdbcType=BIGINT}
+    where pac_id = #{pacId,jdbcType=BIGINT}
+  </update>
+</mapper>
